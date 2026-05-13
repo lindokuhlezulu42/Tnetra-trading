@@ -4,6 +4,7 @@ import path from "path";  // ✅ Add this line at the top
 
 export default defineConfig({
   plugins: [react()],
+    base: '/Tnetra-trading/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),  // ✅ Add this block
