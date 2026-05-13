@@ -1,0 +1,185 @@
+/* ServicesOverview.css */
+
+/* ===== Section Base ===== */
+.services-overview {
+  padding: 6rem 0;
+  background-color: var(--color-muted);
+  /* REMOVED: opacity: 0.5; <- This was causing the blurry/washed-out effect */
+}
+
+.services-overview__container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .services-overview__container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-overview__container {
+    padding: 0 2rem;
+  }
+}
+
+/* ===== Header Section ===== */
+.services-overview__header {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto 4rem auto;
+}
+
+.services-overview__subtitle {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.services-overview__title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .services-overview__title {
+    font-size: 2.25rem;
+  }
+}
+
+.services-overview__description {
+  margin-top: 1rem;
+  color: var(--color-muted-foreground);
+  line-height: 1.625;
+}
+
+/* ===== Services Grid ===== */
+.services-overview__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .services-overview__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-overview__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== Service Card ===== */
+.services-overview__card {
+  background-color: var(--color-card);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.services-overview__card:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Animation delays for staggered entrance */
+.services-overview__card:nth-child(1) { animation-delay: 0s; }
+.services-overview__card:nth-child(2) { animation-delay: 0.1s; }
+.services-overview__card:nth-child(3) { animation-delay: 0.2s; }
+.services-overview__card:nth-child(4) { animation-delay: 0.3s; }
+.services-overview__card:nth-child(5) { animation-delay: 0.4s; }
+.services-overview__card:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Icon Container ===== */
+.services-overview__icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.services-overview__card:hover .services-overview__icon-wrapper {
+  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+.services-overview__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-accent);
+}
+
+/* ===== Card Content ===== */
+.services-overview__card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin: 0 0 0.5rem 0;
+}
+
+.services-overview__card-desc {
+  font-size: 0.875rem;
+  color: var(--color-muted-foreground);
+  line-height: 1.625;
+  margin: 0;
+}
+
+/* ===== View All Link ===== */
+.services-overview__footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.services-overview__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.services-overview__link:hover {
+  gap: 0.75rem;
+}
+
+.services-overview__link-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ===== Animation Fallback ===== */
+@media (prefers-reduced-motion: reduce) {
+  .services-overview__card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

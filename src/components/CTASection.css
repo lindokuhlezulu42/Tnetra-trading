@@ -1,0 +1,131 @@
+/* CTASection.css */
+
+/* ===== Section Base ===== */
+.cta-section {
+  padding: 6rem 0;
+}
+
+.cta-section__container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .cta-section__container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-section__container {
+    padding: 0 2rem;
+  }
+}
+
+/* ===== CTA Card ===== */
+.cta-section__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  padding: 3rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@media (min-width: 640px) {
+  .cta-section__card {
+    padding: 4rem;
+  }
+}
+
+/* Decorative Glow Effect */
+.cta-section__glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16rem;
+  height: 16rem;
+  background-color: color-mix(in srgb, white 10%, transparent);
+  border-radius: 50%;
+  filter: blur(96px);
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+/* Content Wrapper */
+.cta-section__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Headline ===== */
+.cta-section__title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1rem 0;
+}
+
+@media (min-width: 640px) {
+  .cta-section__title {
+    font-size: 2.25rem;
+  }
+}
+
+/* ===== Description ===== */
+.cta-section__description {
+  color: color-mix(in srgb, white 70%, transparent);
+  max-width: 36rem;
+  margin: 0 auto 2rem auto;
+  line-height: 1.625;
+}
+
+/* ===== CTA Button ===== */
+.cta-section__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: white;
+  color: var(--color-primary);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cta-section__button:hover {
+  background-color: color-mix(in srgb, white 90%, transparent);
+  gap: 0.75rem;
+}
+
+.cta-section__button-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.2s ease;
+}
+
+/* ===== Animation (fallback if framer-motion disabled) ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation if JS is disabled */
+@media (prefers-reduced-motion: no-preference) {
+  .cta-section__card.no-js {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+}
