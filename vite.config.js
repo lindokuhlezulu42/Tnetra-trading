@@ -1,13 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";  // ✅ Add this line at the top
+import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-    base: '/Tnetra-trading/',
+
+  // GitHub Pages repository name
+  base: "/Tnetra-trading/",
+
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),  // ✅ Add this block
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });

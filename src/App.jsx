@@ -10,7 +10,7 @@ import { Toaster } from 'sonner';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Tnetra-trading">
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
@@ -19,8 +19,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
         </Route>
+
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+
+      <Toaster />
     </Router>
   );
 }
