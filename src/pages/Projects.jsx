@@ -3,43 +3,41 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, ArrowRight, FileImage, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Vite automatically injects the base path configured in vite.config.js
-const base = import.meta.env.BASE_URL;
-
+// Relative paths work best for GitHub Pages subdirectories
 const flyerImages = [
-  { src: `${base}flyer1.jpg`, title: 'Flyer Design 1', category: 'Flyers' },
-  { src: `${base}flyer2.jpg`, title: 'Flyer Design 2', category: 'Flyers' },
-  { src: `${base}flyer3.jpg`, title: 'Flyer Design 3', category: 'Flyers' },
-  { src: `${base}flyer4.jpg`, title: 'Flyer Design 4', category: 'Flyers' },
-  { src: `${base}flyer5.jpg`, title: 'Flyer Design 5', category: 'Flyers' },
-  { src: `${base}flyer6.jpg`, title: 'Flyer Design 6', category: 'Flyers' },
+  { src: 'flyer1.jpg', title: 'Flyer Design 1', category: 'Flyers' },
+  { src: 'flyer2.jpg', title: 'Flyer Design 2', category: 'Flyers' },
+  { src: 'flyer3.jpg', title: 'Flyer Design 3', category: 'Flyers' },
+  { src: 'flyer4.jpg', title: 'Flyer Design 4', category: 'Flyers' },
+  { src: 'flyer5.jpg', title: 'Flyer Design 5', category: 'Flyers' },
+  { src: 'flyer6.jpg', title: 'Flyer Design 6', category: 'Flyers' },
 ];
 
 const logoImages = [
-  { src: `${base}logo1.jpg`, title: 'Logo Design 1', category: 'Logos' },
-  { src: `${base}logo2.jpg`, title: 'Logo Design 2', category: 'Logos' },
-  { src: `${base}logo3.jpg`, title: 'Logo Design 3', category: 'Logos' },
-  { src: `${base}logo4.jpg`, title: 'Logo Design 4', category: 'Logos' },
-  { src: `${base}logo5.jpg`, title: 'Logo Design 5', category: 'Logos' },
-  { src: `${base}logo6.jpg`, title: 'Logo Design 6', category: 'Logos' },
+  { src: 'logo1.jpg', title: 'Logo Design 1', category: 'Logos' },
+  { src: 'logo2.jpg', title: 'Logo Design 2', category: 'Logos' },
+  { src: 'logo3.jpg', title: 'Logo Design 3', category: 'Logos' },
+  { src: 'logo4.jpg', title: 'Logo Design 4', category: 'Logos' },
+  { src: 'logo5.jpg', title: 'Logo Design 5', category: 'Logos' },
+  { src: 'logo6.jpg', title: 'Logo Design 6', category: 'Logos' },
 ];
 
 const projectImages = [
-  { src: `${base}Blinds.jpeg`, title: 'Window Blinds Installation', category: 'Interior' },
-  { src: `${base}Boards.jpg`, title: 'Corporate Signage Boards', category: 'Branding' },
-  { src: `${base}CarBranding.jpg`, title: 'Vehicle Branding Wrap', category: 'Branding' },
-  { src: `${base}CarWashBoard.jpeg`, title: 'Car Wash Signage', category: 'Signage' },
-  { src: `${base}ClothTables.jpg`, title: 'Event Table Styling', category: 'Events' },
-  { src: `${base}RestaurantBoard.jpeg`, title: 'Restaurant Menu Boards', category: 'Signage' },
-  { src: `${base}waterSupply.jpg`, title: 'Water Supply Solutions', category: 'Infrastructure' },
-  { src: `${base}Thohoyandou.jpeg`, title: 'Thohoyandou Community Project', category: 'Community' },
-  { src: `${base}Pills.jpeg`, title: 'Healthcare Packaging', category: 'Healthcare' },
-  { src: `${base}book.jpeg`, title: 'Educational Material Design', category: 'Print' },
-  { src: `${base}Door.jpeg`, title: 'Custom Door Installation', category: 'Construction' },
-  { src: `${base}gazebo.jpeg`, title: 'Outdoor Gazebo Build', category: 'Construction' },
-  { src: `${base}Memory.jpeg`, title: 'Memorial Installation', category: 'Community' },
-  { src: `${base}Church.jpg`, title: 'Church Renovation Project', category: 'Construction' },
-  { src: `${base}Cars.jpg`, title: 'Fleet Branding Services', category: 'Branding' },
+  { src: 'Blinds.jpeg', title: 'Window Blinds Installation', category: 'Interior' },
+  { src: 'Boards.jpg', title: 'Corporate Signage Boards', category: 'Branding' },
+  { src: 'CarBranding.jpg', title: 'Vehicle Branding Wrap', category: 'Branding' },
+  { src: 'CarWashBoard.jpeg', title: 'Car Wash Signage', category: 'Signage' },
+  { src: 'ClothTables.jpg', title: 'Event Table Styling', category: 'Events' },
+  { src: 'RestaurantBoard.jpeg', title: 'Restaurant Menu Boards', category: 'Signage' },
+  { src: 'waterSupply.jpg', title: 'Water Supply Solutions', category: 'Infrastructure' },
+  { src: 'Thohoyandou.jpeg', title: 'Thohoyandou Community Project', category: 'Community' },
+  { src: 'Pills.jpeg', title: 'Healthcare Packaging', category: 'Healthcare' },
+  { src: 'book.jpeg', title: 'Educational Material Design', category: 'Print' },
+  { src: 'Door.jpeg', title: 'Custom Door Installation', category: 'Construction' },
+  { src: 'gazebo.jpeg', title: 'Outdoor Gazebo Build', category: 'Construction' },
+  { src: 'Memory.jpeg', title: 'Memorial Installation', category: 'Community' },
+  { src: 'Church.jpg', title: 'Church Renovation Project', category: 'Construction' },
+  { src: 'Cars.jpg', title: 'Fleet Branding Services', category: 'Branding' },
 ];
 
 const container = {
