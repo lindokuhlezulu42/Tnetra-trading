@@ -1,10 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-// Use process.env.BASE_URL or a default
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/Tnetra-trading/' : '/'
+// Fix for Windows: __dirname equivalent in ESM
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   plugins: [react()],
-  base: BASE_URL, // This tells Vite to build with the correct path
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 })

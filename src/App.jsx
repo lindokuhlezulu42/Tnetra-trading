@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import SiteLayout from './components/layout/SiteLayout';
 import Home from './pages/Home';
@@ -10,7 +10,7 @@ import { Toaster } from 'sonner';
 
 function App() {
   return (
-    <Router basename="/Tnetra-trading">
+    <>
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
@@ -24,7 +24,7 @@ function App() {
       </Routes>
 
       <Toaster />
-    </Router>
+    </>
   );
 }
 
