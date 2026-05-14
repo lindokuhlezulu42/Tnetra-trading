@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, ArrowRight, FileImage, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Vite automatically injects the base path configured in vite.config.js
 const base = import.meta.env.BASE_URL;
 
 const flyerImages = [
@@ -45,10 +46,7 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.3
-    }
+    transition: { staggerChildren: 0.08, delayChildren: 0.3 }
   }
 };
 
@@ -57,10 +55,7 @@ const item = {
   show: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1]
-    }
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
   }
 };
 
@@ -74,26 +69,22 @@ export default function Projects() {
   const [activeTab, setActiveTab] = useState('projects');
 
   const currentImages =
-    activeTab === 'flyers'
-      ? flyerImages
-      : activeTab === 'logos'
-      ? logoImages
-      : projectImages;
+    activeTab === 'flyers' ? flyerImages :
+    activeTab === 'logos' ? logoImages :
+    projectImages;
 
   return (
     <div className="pt-20">
-
       {/* Hero Banner */}
       <section className="relative py-24 bg-gradient-to-br from-primary to-primary/90 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 text-center">
           <motion.h1
-            initial={{ opacity:0,y:20 }}
-            animate={{ opacity:1,y:0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             className="text-5xl font-bold text-white"
           >
             Projects
           </motion.h1>
-
           <p className="mt-4 text-white/70">
             A showcase of our successful projects.
           </p>
@@ -104,92 +95,77 @@ export default function Projects() {
       <div className="sticky top-20 z-30 bg-background border-b">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-2 py-3">
-
-            {tabs.map(tab=>{
-              const Icon=tab.icon;
-
-              return(
+            {tabs.map(tab => {
+              const Icon = tab.icon;
+              return (
                 <button
                   key={tab.id}
-                  onClick={()=>setActiveTab(tab.id)}
-                  className={`px-5 py-2 rounded-lg flex items-center gap-2 ${
-                    activeTab===tab.id
-                    ?'bg-cyan-500 text-white'
-                    :'hover:bg-gray-100'
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-5 py-2 rounded-lg flex items-center gap-2 transition-colors ${
+                    activeTab === tab.id
+                      ? 'bg-cyan-500 text-white'
+                      : 'hover:bg-gray-100 text-gray-600'
                   }`}
                 >
-                  <Icon size={16}/>
+                  <Icon size={16} />
                   {tab.label}
                 </button>
-              )
+              );
             })}
-
           </div>
         </div>
       </div>
 
       {/* Gallery */}
       <div className="max-w-7xl mx-auto px-4 py-16">
-
         <AnimatePresence mode="wait">
-
           <motion.div
             key={activeTab}
             variants={container}
             initial="hidden"
             animate="show"
+            exit={{ opacity: 0 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-
-            {currentImages.map((project,index)=>(
-
+            {currentImages.map((project, index) => (
               <motion.article
                 key={index}
                 variants={item}
-                whileHover={{y:-6}}
-                className="overflow-hidden rounded-2xl shadow-lg"
+                whileHover={{ y: -6 }}
+                className="overflow-hidden rounded-2xl shadow-lg bg-white"
               >
-
                 <div className="aspect-square overflow-hidden">
-
                   <img
                     src={project.src}
                     alt={project.title}
-                    className="w-full h-full object-cover hover:scale-110 transition"
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                   />
-
                 </div>
-
                 <div className="p-4">
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-gray-500 uppercase tracking-wide">
                     {project.category}
                   </span>
-
-                  <h3 className="font-semibold">
+                  <h3 className="font-semibold text-gray-900 mt-1">
                     {project.title}
                   </h3>
                 </div>
-
               </motion.article>
-
             ))}
-
           </motion.div>
-
         </AnimatePresence>
 
+        {/* CTA */}
         <div className="mt-20 text-center">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-cyan-500 text-white px-8 py-4 rounded-lg"
+            className="inline-flex items-center gap-2 bg-cyan-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-cyan-600 transition-colors"
           >
             Have a project in mind?
-            <ArrowRight size={18}/>
+            <ArrowRight size={18} />
           </Link>
         </div>
-
       </div>
-
     </div>
   );
 }
