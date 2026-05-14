@@ -1,18 +1,17 @@
 {
   "name": "new-websites",
-  "homepage": "https://lindokuhlezulu42.github.io/Tnetra-trading",
+  "homepage": "https://lindokuhlezulu42.github.io/Tnetra-trading/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "react-scripts build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "react-scripts start"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",
