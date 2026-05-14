@@ -1,16 +1,10 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// Use process.env.BASE_URL or a default
+const BASE_URL = process.env.NODE_ENV === 'production' ? '/Tnetra-trading/' : '/'
 
 export default defineConfig({
   plugins: [react()],
-
-  // GitHub Pages repository name
-  base: "/Tnetra-trading/",
-
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-});
+  base: BASE_URL, // This tells Vite to build with the correct path
+})
